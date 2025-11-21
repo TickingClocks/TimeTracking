@@ -1,0 +1,1 @@
+The lvgl code for this project was generated via squareline studio. Squareline exports the code into a folder in the Arduino project folder. Those files are copied and pasted from that folder into the Arduino project root folder. 
