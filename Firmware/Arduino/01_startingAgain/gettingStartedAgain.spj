@@ -2381,7 +2381,8 @@
                 "InheritedType": 1
               }
             ],
-            "saved_objtypeKey": "SPINNER"
+            "saved_objtypeKey": "SPINNER",
+            "tree_closed": true
           },
           {
             "guid": "GUID78096975-348971S569744325",
@@ -2392,7 +2393,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "Spinner1",
+                "strval": "Spinner7",
                 "InheritedType": 10
               },
               {
@@ -2571,7 +2572,7 @@
               {
                 "nid": 10,
                 "strtype": "OBJECT/Name",
-                "strval": "Spinner7",
+                "strval": "Spinner8",
                 "InheritedType": 10
               },
               {
@@ -4670,7 +4671,7 @@
     "theme_color1": 5,
     "theme_color2": 0,
     "custom_variable_prefix": "uic",
-    "backup_cnt": 40,
+    "backup_cnt": 41,
     "autosave_cnt": 0,
     "group_color_cnt": 0,
     "lvgl_version": "8.3.11",

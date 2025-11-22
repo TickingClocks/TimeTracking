@@ -9,14 +9,14 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_RGB + NEO_KHZ800);
 
 //button variables
 //switch connections
-int switch1 = 1; //correct
-int switch2 = 9; //correct
-int switch3 = 19; //correct
-int switch4 = 23; //correct
-int switch5 = 20; //correct
-int switch6 = 2; //check //squareline7
-int switch7 = 0; //check //squareline 8
-int switch8 = 18; //check //squareline 9
+int switch1 = 19; 
+int switch2 = 9; 
+int switch3 = 1; 
+int switch4 = 23; 
+int switch5 = 20; 
+int switch6 = 18; 
+int switch7 = 0; 
+int switch8 = 2; 
 
 bool switch1_state = 0;
 bool switch2_state = 0;
@@ -151,13 +151,13 @@ void loop()
   //update the arc on screen 2
   //lv_arc_set_value(ui_Arc1, uartValue);
 
-  int switchCheck = switch1_state + switch2_state + switch3_state;
+  int switchCheck = switch1_state + switch2_state + switch3_state + switch6_state + switch7_state + switch8_state;
 
   if(randomCount > 1){
     randomCount = 0;
     if(switchCheck > 0){
       if(switchCheck > 1){
-        LED_Breathe(4);
+        LED_Breathe(10);
       }else{
         if(switch1_state > 0){
           LED_Breathe(1);
@@ -167,6 +167,18 @@ void loop()
         }
         if(switch3_state > 0){
           LED_Breathe(3);
+        }
+        if(switch6_state > 0){
+          LED_Breathe(1);
+          //LED_Breathe(4);
+        }
+        if(switch7_state > 0){
+          LED_Breathe(2);
+          //LED_Breathe(5);
+        }
+        if(switch8_state > 0){
+          LED_Breathe(3);
+          //LED_Breathe(6);
         }
       }
     }else{
@@ -216,9 +228,12 @@ void checkSecondsCounter(void){
 
 void setTimerScreenText(void){
 
-  lv_label_set_text_fmt(ui_timer1, "1 || h: %d m: %d s: %d", task1Hours, task1Minutes, task1Seconds);
-  lv_label_set_text_fmt(ui_timer2, "2 || h: %d m: %d s: %d", task2Hours, task2Minutes, task2Seconds);
-  lv_label_set_text_fmt(ui_timer3, "3 || h: %d m: %d s: %d", task3Hours, task3Minutes, task3Seconds);
+  lv_label_set_text_fmt(ui_timer1, "1 || :%d : %d : %d", task1Hours, task1Minutes, task1Seconds);
+  lv_label_set_text_fmt(ui_timer2, "2 || :%d : %d : %d", task2Hours, task2Minutes, task2Seconds);
+  lv_label_set_text_fmt(ui_timer3, "3 || :%d : %d : %d", task3Hours, task3Minutes, task3Seconds);
+  lv_label_set_text_fmt(ui_timer4, "4 || :%d : %d : %d", task4Hours, task4Minutes, task4Seconds);
+  lv_label_set_text_fmt(ui_timer5, "5 || :%d : %d : %d", task5Hours, task5Minutes, task5Seconds);
+  lv_label_set_text_fmt(ui_timer6, "6 || :%d : %d : %d", task6Hours, task6Minutes, task6Seconds);
 }
 
 void incrementTimers(void){
@@ -241,6 +256,22 @@ void incrementTimers(void){
     task3SecondCount++;
     changeOccurred++;
   }
+
+  if(switch6_state){
+    task4SecondCount++;
+    changeOccurred++;
+  }
+
+  if(switch7_state){
+    task5SecondCount++;
+    changeOccurred++;
+  }
+
+  if(switch8_state){
+    task6SecondCount++;
+    changeOccurred++;
+  }
+
 
   if(changeOccurred > 0){
     convertTimers();
@@ -300,6 +331,57 @@ void convertTimers(void){
       task3Seconds = (task3SecondCount - ((task3Hours * 3600) + (task3Minutes * 60)));
     }
   }
+
+  //convert timer 4
+  if(task4SecondCount > 3600){
+    task4Hours = task4SecondCount / 3600;
+    task4Minutes = (task4SecondCount - (task4Hours * 3600)) / 60;
+    task4Seconds = (task4SecondCount - ((task4Hours * 3600) + (task4Minutes * 60)));
+  }else{
+    if(task4SecondCount > 60){
+      task4Hours = 0;
+      task4Minutes = (task4SecondCount - (task4Hours * 3600)) / 60;
+      task4Seconds = (task4SecondCount - ((task4Hours * 3600) + (task4Minutes * 60)));
+    }else{
+      task4Hours = 0;
+      task4Minutes = 0;
+      task4Seconds = (task4SecondCount - ((task4Hours * 3600) + (task4Minutes * 60)));
+    }
+  }
+
+  //convert timer 5
+  if(task5SecondCount > 3600){
+    task5Hours = task5SecondCount / 3600;
+    task5Minutes = (task5SecondCount - (task5Hours * 3600)) / 60;
+    task5Seconds = (task5SecondCount - ((task5Hours * 3600) + (task5Minutes * 60)));
+  }else{
+    if(task5SecondCount > 60){
+      task5Hours = 0;
+      task5Minutes = (task5SecondCount - (task5Hours * 3600)) / 60;
+      task5Seconds = (task5SecondCount - ((task5Hours * 3600) + (task5Minutes * 60)));
+    }else{
+      task5Hours = 0;
+      task5Minutes = 0;
+      task5Seconds = (task5SecondCount - ((task5Hours * 3600) + (task5Minutes * 60)));
+    }
+  }
+
+  //convert timer 6
+  if(task6SecondCount > 3600){
+    task6Hours = task6SecondCount / 3600;
+    task6Minutes = (task6SecondCount - (task6Hours * 3600)) / 60;
+    task6Seconds = (task6SecondCount - ((task6Hours * 3600) + (task6Minutes * 60)));
+  }else{
+    if(task6SecondCount > 60){
+      task6Hours = 0;
+      task6Minutes = (task6SecondCount - (task6Hours * 3600)) / 60;
+      task6Seconds = (task6SecondCount - ((task6Hours * 3600) + (task6Minutes * 60)));
+    }else{
+      task6Hours = 0;
+      task6Minutes = 0;
+      task6Seconds = (task6SecondCount - ((task6Hours * 3600) + (task6Minutes * 60)));
+    }
+  }
 }
 
 void readSwitches(void){
@@ -308,14 +390,17 @@ void readSwitches(void){
   switch3_state = !digitalRead(switch3);
   switch4_state = !digitalRead(switch4);
   switch5_state = !digitalRead(switch5);
+  switch6_state = !digitalRead(switch6);
+  switch7_state = !digitalRead(switch7);
+  switch8_state = !digitalRead(switch8);
 }
 
 void matchScreenToStates(void){
   if(switch1_state > 0){
-    lv_obj_add_state(ui_Switch1, LV_STATE_CHECKED);
+    lv_obj_add_state(ui_Switch3, LV_STATE_CHECKED);
     lv_obj_clear_flag(ui_Spinner3, LV_OBJ_FLAG_HIDDEN); // Show    
   }else{
-    lv_obj_clear_state(ui_Switch1, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_Switch3, LV_STATE_CHECKED);
     lv_obj_add_flag(ui_Spinner3, LV_OBJ_FLAG_HIDDEN); // hidden
   }
 
@@ -328,10 +413,10 @@ void matchScreenToStates(void){
   }
 
   if(switch3_state > 0){
-    lv_obj_add_state(ui_Switch3, LV_STATE_CHECKED);
+    lv_obj_add_state(ui_Switch1, LV_STATE_CHECKED);
     lv_obj_clear_flag(ui_Spinner5, LV_OBJ_FLAG_HIDDEN); // Show
   }else{
-    lv_obj_clear_state(ui_Switch3, LV_STATE_CHECKED);
+    lv_obj_clear_state(ui_Switch1, LV_STATE_CHECKED);
     lv_obj_add_flag(ui_Spinner5, LV_OBJ_FLAG_HIDDEN); // hidden
   }
 
@@ -350,6 +435,31 @@ void matchScreenToStates(void){
   }else{
     lv_obj_clear_state(ui_Switch5, LV_STATE_CHECKED);
   }
+
+  if(switch6_state > 0){
+    lv_obj_add_state(ui_Switch7, LV_STATE_CHECKED);
+    lv_obj_clear_flag(ui_Spinner6, LV_OBJ_FLAG_HIDDEN); // Show  
+  }else{
+    lv_obj_clear_state(ui_Switch7, LV_STATE_CHECKED);
+    lv_obj_add_flag(ui_Spinner6, LV_OBJ_FLAG_HIDDEN); // hidden
+  }
+
+  if(switch7_state > 0){
+    lv_obj_add_state(ui_Switch8, LV_STATE_CHECKED);
+    lv_obj_clear_flag(ui_Spinner7, LV_OBJ_FLAG_HIDDEN); // Show  
+  }else{
+    lv_obj_clear_state(ui_Switch8, LV_STATE_CHECKED);
+    lv_obj_add_flag(ui_Spinner7, LV_OBJ_FLAG_HIDDEN); // hidden
+  }
+
+  if(switch8_state > 0){
+    lv_obj_add_state(ui_Switch9, LV_STATE_CHECKED);
+    lv_obj_clear_flag(ui_Spinner8, LV_OBJ_FLAG_HIDDEN); // Show  
+  }else{
+    lv_obj_clear_state(ui_Switch9, LV_STATE_CHECKED);
+    lv_obj_add_flag(ui_Spinner8, LV_OBJ_FLAG_HIDDEN); // hidden
+  }
+
 }
 
 void LED_setBreathe(void){
@@ -359,7 +469,7 @@ void LED_setBreathe(void){
 
   if(colorOption > 0){ //is a timer counting
     if(colorOption > 1){ //are two or more timers counting
-      LED_Breathe(4); 
+      LED_Breathe(10); 
     }else{
       if(switch1_state > 0){
         LED_Breathe(1);
@@ -369,6 +479,15 @@ void LED_setBreathe(void){
       }
       if(switch3_state > 0){
         LED_Breathe(3);
+      }
+      if(switch6_state > 0){
+        LED_Breathe(4);
+      }
+      if(switch7_state > 0){
+        LED_Breathe(5);
+      }
+      if(switch8_state > 0){
+        LED_Breathe(6);
       }
     }
   }else{
@@ -463,7 +582,7 @@ int lowEnd = 25;
     LED_Breathe_G = 0;
     break;
 
-    case 4:
+    case 10:
     //multiple switches flipped - red
     if(LED_Breathe_Direction){
       //count up

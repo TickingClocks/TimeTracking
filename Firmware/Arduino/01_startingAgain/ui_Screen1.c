@@ -22,8 +22,8 @@ lv_obj_t * ui_Switch7 = NULL;
 lv_obj_t * ui_Switch8 = NULL;
 lv_obj_t * ui_Switch9 = NULL;
 lv_obj_t * ui_Spinner6 = NULL;
-lv_obj_t * ui_Spinner1 = NULL;
 lv_obj_t * ui_Spinner7 = NULL;
+lv_obj_t * ui_Spinner8 = NULL;
 lv_obj_t * ui_timer4 = NULL;
 lv_obj_t * ui_timer5 = NULL;
 lv_obj_t * ui_timer6 = NULL;
@@ -186,33 +186,33 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_style_arc_color(ui_Spinner6, lv_color_hex(0x020212), LV_PART_INDICATOR | LV_STATE_CHECKED);
     lv_obj_set_style_arc_opa(ui_Spinner6, 255, LV_PART_INDICATOR | LV_STATE_CHECKED);
 
-    ui_Spinner1 = lv_spinner_create(ui_Screen1, 1000, 90);
-    lv_obj_set_width(ui_Spinner1, 46);
-    lv_obj_set_height(ui_Spinner1, 30);
-    lv_obj_set_x(ui_Spinner1, 33);
-    lv_obj_set_y(ui_Spinner1, -30);
-    lv_obj_set_align(ui_Spinner1, LV_ALIGN_CENTER);
-    lv_obj_clear_flag(ui_Spinner1, LV_OBJ_FLAG_CLICKABLE);      /// Flags
-    lv_obj_set_style_arc_width(ui_Spinner1, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-
-    lv_obj_set_style_arc_color(ui_Spinner1, lv_color_hex(0xECB724), LV_PART_INDICATOR | LV_STATE_DEFAULT);
-    lv_obj_set_style_arc_opa(ui_Spinner1, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-    lv_obj_set_style_arc_width(ui_Spinner1, 2, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-    lv_obj_set_style_arc_rounded(ui_Spinner1, true, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-
     ui_Spinner7 = lv_spinner_create(ui_Screen1, 1000, 90);
-    lv_obj_set_width(ui_Spinner7, 31);
+    lv_obj_set_width(ui_Spinner7, 46);
     lv_obj_set_height(ui_Spinner7, 30);
-    lv_obj_set_x(ui_Spinner7, 27);
-    lv_obj_set_y(ui_Spinner7, 3);
+    lv_obj_set_x(ui_Spinner7, 33);
+    lv_obj_set_y(ui_Spinner7, -30);
     lv_obj_set_align(ui_Spinner7, LV_ALIGN_CENTER);
     lv_obj_clear_flag(ui_Spinner7, LV_OBJ_FLAG_CLICKABLE);      /// Flags
     lv_obj_set_style_arc_width(ui_Spinner7, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_set_style_arc_color(ui_Spinner7, lv_color_hex(0x31BA40), LV_PART_INDICATOR | LV_STATE_DEFAULT);
+    lv_obj_set_style_arc_color(ui_Spinner7, lv_color_hex(0xECB724), LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_arc_opa(ui_Spinner7, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_arc_width(ui_Spinner7, 2, LV_PART_INDICATOR | LV_STATE_DEFAULT);
     lv_obj_set_style_arc_rounded(ui_Spinner7, true, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+
+    ui_Spinner8 = lv_spinner_create(ui_Screen1, 1000, 90);
+    lv_obj_set_width(ui_Spinner8, 31);
+    lv_obj_set_height(ui_Spinner8, 30);
+    lv_obj_set_x(ui_Spinner8, 27);
+    lv_obj_set_y(ui_Spinner8, 3);
+    lv_obj_set_align(ui_Spinner8, LV_ALIGN_CENTER);
+    lv_obj_clear_flag(ui_Spinner8, LV_OBJ_FLAG_CLICKABLE);      /// Flags
+    lv_obj_set_style_arc_width(ui_Spinner8, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_obj_set_style_arc_color(ui_Spinner8, lv_color_hex(0x31BA40), LV_PART_INDICATOR | LV_STATE_DEFAULT);
+    lv_obj_set_style_arc_opa(ui_Spinner8, 255, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+    lv_obj_set_style_arc_width(ui_Spinner8, 2, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+    lv_obj_set_style_arc_rounded(ui_Spinner8, true, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
     ui_timer4 = lv_label_create(ui_Screen1);
     lv_obj_set_width(ui_timer4, LV_SIZE_CONTENT);   /// 1
@@ -275,8 +275,8 @@ void ui_Screen1_screen_destroy(void)
     ui_Switch8 = NULL;
     ui_Switch9 = NULL;
     ui_Spinner6 = NULL;
-    ui_Spinner1 = NULL;
     ui_Spinner7 = NULL;
+    ui_Spinner8 = NULL;
     ui_timer4 = NULL;
     ui_timer5 = NULL;
     ui_timer6 = NULL;
