@@ -14,9 +14,9 @@ int switch2 = 9; //correct
 int switch3 = 19; //correct
 int switch4 = 23; //correct
 int switch5 = 20; //correct
-int switch6 = 2; //check
-int switch7 = 0; //check
-int switch8 = 18; //check
+int switch6 = 2; //check //squareline7
+int switch7 = 0; //check //squareline 8
+int switch8 = 18; //check //squareline 9
 
 bool switch1_state = 0;
 bool switch2_state = 0;

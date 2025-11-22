@@ -20,17 +20,22 @@ extern lv_obj_t * ui_Switch1;
 extern lv_obj_t * ui_Switch4;
 extern lv_obj_t * ui_Switch5;
 extern lv_obj_t * ui_Spinner3;
-extern lv_obj_t * ui_Label3;
-extern lv_obj_t * ui_Label4;
-extern lv_obj_t * ui_Label5;
 extern lv_obj_t * ui_Label6;
-extern lv_obj_t * ui_Label7;
 extern lv_obj_t * ui_timer1;
 extern lv_obj_t * ui_timer2;
 extern lv_obj_t * ui_timer3;
 extern lv_obj_t * ui_Spinner4;
 extern lv_obj_t * ui_Spinner5;
+extern lv_obj_t * ui_Switch7;
+extern lv_obj_t * ui_Switch8;
+extern lv_obj_t * ui_Switch9;
+extern lv_obj_t * ui_Spinner6;
 extern lv_obj_t * ui_Spinner1;
+extern lv_obj_t * ui_Spinner7;
+extern lv_obj_t * ui_timer4;
+extern lv_obj_t * ui_timer5;
+extern lv_obj_t * ui_timer6;
+extern lv_obj_t * ui_Label1;
 extern lv_obj_t * ui_Image1;
 // CUSTOM VARIABLES
 
