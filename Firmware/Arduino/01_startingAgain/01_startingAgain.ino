@@ -9,17 +9,23 @@ Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_RGB + NEO_KHZ800);
 
 //button variables
 //switch connections
-int switch1 = 19;
-int switch2 = 9;
-int switch3 = 20;
-int switch4 = 23;
-int switch5 = 18;
+int switch1 = 1; //correct
+int switch2 = 9; //correct
+int switch3 = 19; //correct
+int switch4 = 23; //correct
+int switch5 = 20; //correct
+int switch6 = 2; //check
+int switch7 = 0; //check
+int switch8 = 18; //check
 
 bool switch1_state = 0;
 bool switch2_state = 0;
 bool switch3_state = 0;
 bool switch4_state = 0;
 bool switch5_state = 0;
+bool switch6_state = 0;
+bool switch7_state = 0;
+bool switch8_state = 0;
 
 //keeping track of each second
 long currentSecondCount = 0;
@@ -28,6 +34,9 @@ long lastSecondCount = 0;
 long task1SecondCount = 0; //timer for task 1
 long task2SecondCount = 0; //timer for task 2
 long task3SecondCount = 0; //timer for task 3
+long task4SecondCount = 0;
+long task5SecondCount = 0;
+long task6SecondCount = 0;
 
 //converted time variables
 int task1Seconds = 0;
@@ -42,6 +51,18 @@ int task3Seconds = 0;
 int task3Minutes = 0;
 int task3Hours = 0;
 
+int task4Seconds = 0;
+int task4Minutes = 0;
+int task4Hours = 0;
+
+int task5Seconds = 0;
+int task5Minutes = 0;
+int task5Hours = 0;
+
+int task6Seconds = 0;
+int task6Minutes = 0;
+int task6Hours = 0;
+
 //LED variables
 long currentLEDBreatheCount = 0;
 long lastLEDBreatheCount = 0;
@@ -54,6 +75,9 @@ uint8_t LED_Breathe_Increment = 1;
 bool time1Counting = 0; //switch 1 state
 bool timer2Counting = 0; //switch 2 state
 bool timer3Counting = 0; //switch 3 state
+bool timer4Counting = 0;
+bool timer5Counting = 0;
+bool timer6Counting = 0;
 
 uint8_t randomCount = 0;
 
@@ -78,6 +102,9 @@ void setup()
   pinMode(switch3, INPUT_PULLUP);
   pinMode(switch4, INPUT_PULLUP);
   pinMode(switch5, INPUT_PULLUP);
+  pinMode(switch6, INPUT_PULLUP);
+  pinMode(switch7, INPUT_PULLUP);
+  pinMode(switch8, INPUT_PULLUP);
 
   pixels.begin();
   pixels.setPixelColor(0, pixels.Color(0, 150, 0));
